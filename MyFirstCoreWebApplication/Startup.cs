@@ -4,8 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyFirstCoreWebApplication.Context;
+using MyFirstCoreWebApplication.Models;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace MyFirstCoreWebApplication
 {
@@ -13,7 +17,7 @@ namespace MyFirstCoreWebApplication
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration;                        
         }
 
         public IConfiguration Configuration { get; }
@@ -22,6 +26,21 @@ namespace MyFirstCoreWebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            // Register the Swagger generator, defining one or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
+
+            //For Context Database
+            // Add framework services.
+            services.AddDbContext<FirstContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));            
+            
+            //MyFirstCoreWebApplication.Data.DbInitializer.Initialize(new FirstContext());
+
+            //services.AddDbContext<FirstContext>(opt => opt.UseInMemoryDatabase("Person"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +56,15 @@ namespace MyFirstCoreWebApplication
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -45,6 +73,7 @@ namespace MyFirstCoreWebApplication
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            
         }
     }
 }
