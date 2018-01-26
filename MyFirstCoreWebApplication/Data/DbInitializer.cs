@@ -8,7 +8,7 @@ namespace MyFirstCoreWebApplication.Data
 {
     public class DbInitializer
     {
-        public static void Initialize(FirstContext context)
+        public static void Initialize(ApplicationContext context)
         {
             context.Database.EnsureCreated();
         }

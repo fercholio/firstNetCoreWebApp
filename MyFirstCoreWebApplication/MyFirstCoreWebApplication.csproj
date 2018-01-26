@@ -14,4 +14,10 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyFirstCoreWebApplication.Data\MyFirstCoreWebApplication.Data.csproj" />
+    <ProjectReference Include="..\MyFirstCoreWebApplication.Models\MyFirstCoreWebApplication.Models.csproj" />
+    <ProjectReference Include="..\MyFirstCoreWebApplication.Services\MyFirstCoreWebApplication.Services.csproj" />
+  </ItemGroup>
+
 </Project>

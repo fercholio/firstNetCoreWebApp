@@ -24,7 +24,7 @@ namespace MyFirstCoreWebApplication
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<FirstContext>();
+                    var context = services.GetRequiredService<ApplicationContext>();
                     DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)

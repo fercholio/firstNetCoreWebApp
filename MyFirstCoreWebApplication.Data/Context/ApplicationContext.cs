@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MyFirstCoreWebApplication.Context
 {
-    public class FirstContext : DbContext
+    public class ApplicationContext : DbContext
     {
-        public FirstContext(DbContextOptions<FirstContext> options) : base(options)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
             
         }

@@ -9,9 +9,9 @@ namespace MyFirstCoreWebApplication.Data.Repository
 {
     public class PeopleRepository : IPeopleRepository
     {
-        private readonly FirstContext _context;
+        private readonly ApplicationContext _context;
 
-        public PeopleRepository(FirstContext context)
+        public PeopleRepository(ApplicationContext context)
         {
             _context = context;
         }

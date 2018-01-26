@@ -6,23 +6,25 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyFirstCoreWebApplication.Context;
+using MyFirstCoreWebApplication.Data.Repository;
 using MyFirstCoreWebApplication.Models;
+using MyFirstCoreWebApplication.Services.Business;
 
 namespace MyFirstCoreWebApplication.Controllers
 {
     public class PeopleController : Controller
     {
-        private readonly FirstContext _context;
+        private IPeopleService peopleService;
 
-        public PeopleController(FirstContext context)
+        public PeopleController(IPeopleService peopleService)
         {
-            _context = context;
+            this.peopleService = peopleService;
         }
 
         // GET: People
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Persons.ToListAsync());
+            return View(await peopleService.GetAll());
         }
 
         // GET: People/Details/5
@@ -33,8 +35,7 @@ namespace MyFirstCoreWebApplication.Controllers
                 return NotFound();
             }
 
-            var person = await _context.Persons
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var person = await peopleService.Get(Convert.ToInt64(id));
             if (person == null)
             {
                 return NotFound();
@@ -58,8 +59,7 @@ namespace MyFirstCoreWebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(person);
-                await _context.SaveChangesAsync();
+                await peopleService.Insert(person);
                 return RedirectToAction(nameof(Index));
             }
             return View(person);
@@ -73,7 +73,7 @@ namespace MyFirstCoreWebApplication.Controllers
                 return NotFound();
             }
 
-            var person = await _context.Persons.SingleOrDefaultAsync(m => m.Id == id);
+            var person = await peopleService.Get(Convert.ToInt64(id));
             if (person == null)
             {
                 return NotFound();
@@ -97,8 +97,7 @@ namespace MyFirstCoreWebApplication.Controllers
             {
                 try
                 {
-                    _context.Update(person);
-                    await _context.SaveChangesAsync();
+                    await peopleService.Update(person);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +123,7 @@ namespace MyFirstCoreWebApplication.Controllers
                 return NotFound();
             }
 
-            var person = await _context.Persons
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var person = await peopleService.Get(Convert.ToInt64(id));
             if (person == null)
             {
                 return NotFound();
@@ -139,15 +137,15 @@ namespace MyFirstCoreWebApplication.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var person = await _context.Persons.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Persons.Remove(person);
-            await _context.SaveChangesAsync();
+            var person = await peopleService.Get(Convert.ToInt64(id));
+            await peopleService.Delete(person);
             return RedirectToAction(nameof(Index));
         }
 
         private bool PersonExists(long id)
         {
-            return _context.Persons.Any(e => e.Id == id);
+            int count = peopleService.Count(p => p.Id == id).Result;            
+            return  count > 0;
         }
     }
 }

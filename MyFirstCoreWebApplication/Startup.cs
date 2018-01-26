@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MyFirstCoreWebApplication.Context;
 using MyFirstCoreWebApplication.Data.Repository;
 using MyFirstCoreWebApplication.Models;
+using MyFirstCoreWebApplication.Services.Business;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace MyFirstCoreWebApplication
@@ -36,11 +37,16 @@ namespace MyFirstCoreWebApplication
 
             //For Context Database
             // Add framework services.
-            services.AddDbContext<FirstContext>(options =>
+            services.AddDbContext<ApplicationContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //CONFIGURE REPOSITORY PATTERN            
             services.AddScoped<IPeopleRepository, PeopleRepository>();
+            services.AddScoped<IPeopleService, PeopleService>();
+            //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
