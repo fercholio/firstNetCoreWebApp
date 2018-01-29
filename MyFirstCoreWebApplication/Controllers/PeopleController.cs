@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MyFirstCoreWebApplication.Context;
 using MyFirstCoreWebApplication.Data.Repository;
 using MyFirstCoreWebApplication.Models;
@@ -15,15 +16,18 @@ namespace MyFirstCoreWebApplication.Controllers
     public class PeopleController : Controller
     {
         private IPeopleService peopleService;
+        private ILogger<PeopleController> logger;
 
-        public PeopleController(IPeopleService peopleService)
+        public PeopleController(IPeopleService peopleService, ILogger<PeopleController> logger)
         {
             this.peopleService = peopleService;
+            this.logger = logger;
         }
 
         // GET: People
         public async Task<IActionResult> Index()
         {
+            logger.LogInformation("Getting all items");
             return View(await peopleService.GetAll());
         }
 
@@ -34,7 +38,7 @@ namespace MyFirstCoreWebApplication.Controllers
             {
                 return NotFound();
             }
-
+            logger.LogInformation("Getting item {ID}", id);
             var person = await peopleService.Get(Convert.ToInt64(id));
             if (person == null)
             {
