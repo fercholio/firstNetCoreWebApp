@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyFirstCoreWebApplication.Context;
 using MyFirstCoreWebApplication.Data.Repository;
+using MyFirstCoreWebApplication.Data.Seed;
 using MyFirstCoreWebApplication.Models;
 using MyFirstCoreWebApplication.Services.Business;
 using Swashbuckle.AspNetCore.Swagger;
@@ -46,7 +47,7 @@ namespace MyFirstCoreWebApplication
             //CONFIGURE REPOSITORY PATTERN            
             services.AddScoped<IPeopleRepository, PeopleRepository>();
             services.AddScoped<IPeopleService, PeopleService>();
-            //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

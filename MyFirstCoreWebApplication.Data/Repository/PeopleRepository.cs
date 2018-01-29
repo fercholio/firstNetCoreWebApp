@@ -27,7 +27,7 @@ namespace MyFirstCoreWebApplication.Data.Repository
             return _context.Persons.FirstOrDefault(p => p.Id == key);
         }
 
-        public IEnumerable<Person> GetAll()
+        public List<Person> GetAll()
         {
             return _context.Persons.ToList();
         }

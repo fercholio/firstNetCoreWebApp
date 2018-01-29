@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MyFirstCoreWebApplication.Context;
 using MyFirstCoreWebApplication.Data;
+using MyFirstCoreWebApplication.Services.Business;
 
 namespace MyFirstCoreWebApplication
 {
@@ -25,7 +26,10 @@ namespace MyFirstCoreWebApplication
                 try
                 {
                     var context = services.GetRequiredService<ApplicationContext>();
-                    DbInitializer.Initialize(context);
+                    var dbInitializerLogger = services.GetRequiredService<ILogger<DbInitializer>>();
+                    var peopleManager = services.GetRequiredService<IPeopleService>();
+
+                    DbInitializer.Initialize(context,peopleManager).Wait();
                 }
                 catch (Exception ex)
                 {

@@ -9,7 +9,7 @@ namespace MyFirstCoreWebApplication.Data.Repository
     public interface IPeopleRepository
     {
         void Add(Person item);
-        IEnumerable<Person> GetAll();
+        List<Person> GetAll();
         Person Find(long key);
         void Remove(long key);
         void Update(Person item);
