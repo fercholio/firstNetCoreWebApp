@@ -142,6 +142,11 @@ namespace MyFirstCoreWebApplication.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        /// <summary>
+        /// To determine if a people id already exists
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool PersonExists(long id)
         {
             int count = peopleService.Count(p => p.Id == id).Result;            
