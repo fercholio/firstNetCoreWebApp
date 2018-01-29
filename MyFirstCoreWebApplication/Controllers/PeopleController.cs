@@ -147,7 +147,7 @@ namespace MyFirstCoreWebApplication.Controllers
         }
 
         /// <summary>
-        /// To determine if a people id already exists
+        /// To determine if a person id already exists
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
