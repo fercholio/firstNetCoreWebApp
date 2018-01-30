@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyFirstCoreWebApplication.Models
 {
-    [Table("Person")]
+    [Table("Persons")]
     public class Person
     {
         [Key]
