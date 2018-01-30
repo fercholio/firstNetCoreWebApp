@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyFirstCoreWebApplication.Data.Repository
 {
-    public interface IPeopleRepository
+    public interface IPeopleRepository: IRepository<Person>
     {
-        void Add(Person item);
-        List<Person> GetAll();
-        Person Find(long key);
-        void Remove(long key);
-        void Update(Person item);
     }
 }
