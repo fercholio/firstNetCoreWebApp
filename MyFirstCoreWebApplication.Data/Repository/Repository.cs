@@ -32,7 +32,7 @@ namespace MyFirstCoreWebApplication.Data.Repository
 
         public async Task<T> Get(long id)
         {
-            return entities.Find(id);
+            return await entities.FindAsync(id);
         }
         public async Task<int> Insert(T entity)
         {
