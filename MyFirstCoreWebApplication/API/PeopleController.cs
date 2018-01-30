@@ -30,7 +30,7 @@ namespace MyFirstCoreWebApplication.API
         [HttpGet("{id}")]
         public ObjectResult Get(long id)
         {
-           var person = peopleRepository.Find(id);
+           var person = peopleRepository.Get(id);
 
             return Ok(person);
         }
