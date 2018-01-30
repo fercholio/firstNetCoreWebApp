@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.0
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFirstCoreWebApplication", "MyFirstCoreWebApplication\MyFirstCoreWebApplication.csproj", "{D524915A-93CC-4C01-9866-A7C27E0C1FED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstCoreWebApplication.Data", "MyFirstCoreWebApplication.Data\MyFirstCoreWebApplication.Data.csproj", "{5EE3301C-8DC5-4532-8B2C-F6D640C4EE13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFirstCoreWebApplication.Data", "MyFirstCoreWebApplication.Data\MyFirstCoreWebApplication.Data.csproj", "{5EE3301C-8DC5-4532-8B2C-F6D640C4EE13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstCoreWebApplication.Models", "MyFirstCoreWebApplication.Models\MyFirstCoreWebApplication.Models.csproj", "{2DFA6104-F675-454E-85C1-4C6F27CA0C51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFirstCoreWebApplication.Models", "MyFirstCoreWebApplication.Models\MyFirstCoreWebApplication.Models.csproj", "{2DFA6104-F675-454E-85C1-4C6F27CA0C51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstCoreWebApplication.Services", "MyFirstCoreWebApplication.Services\MyFirstCoreWebApplication.Services.csproj", "{4480CDE4-8740-4869-A899-283245CF6564}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFirstCoreWebApplication.Services", "MyFirstCoreWebApplication.Services\MyFirstCoreWebApplication.Services.csproj", "{4480CDE4-8740-4869-A899-283245CF6564}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularNetCoreVS", "AngularNetCoreVS\AngularNetCoreVS.csproj", "{64793631-2C88-4F7F-AE82-B46123254B52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4480CDE4-8740-4869-A899-283245CF6564}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4480CDE4-8740-4869-A899-283245CF6564}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4480CDE4-8740-4869-A899-283245CF6564}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64793631-2C88-4F7F-AE82-B46123254B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64793631-2C88-4F7F-AE82-B46123254B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64793631-2C88-4F7F-AE82-B46123254B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64793631-2C88-4F7F-AE82-B46123254B52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
