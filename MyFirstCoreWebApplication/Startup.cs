@@ -39,10 +39,10 @@ namespace MyFirstCoreWebApplication
             //For Context Database
             // Add framework services.
             services.AddDbContext<ApplicationContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("FirstContextConnection")));
 
-            services.AddDbContext<ApplicationContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<ApplicationContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //CONFIGURE REPOSITORY PATTERN            
             services.AddScoped<IPeopleRepository, PeopleRepository>();
