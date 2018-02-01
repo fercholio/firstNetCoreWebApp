@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFirstCoreWebApplication.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFirstCoreWebApplication.Services", "MyFirstCoreWebApplication.Services\MyFirstCoreWebApplication.Services.csproj", "{4480CDE4-8740-4869-A899-283245CF6564}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularNetCoreVS", "AngularNetCoreVS\AngularNetCoreVS.csproj", "{64793631-2C88-4F7F-AE82-B46123254B52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularNetCoreVS", "AngularNetCoreVS\AngularNetCoreVS.csproj", "{64793631-2C88-4F7F-AE82-B46123254B52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularNetCoreVS2", "AngularNetCoreVS2\AngularNetCoreVS2.csproj", "{29DC425A-BCA6-4419-95E9-E19168168583}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{64793631-2C88-4F7F-AE82-B46123254B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64793631-2C88-4F7F-AE82-B46123254B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64793631-2C88-4F7F-AE82-B46123254B52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29DC425A-BCA6-4419-95E9-E19168168583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29DC425A-BCA6-4419-95E9-E19168168583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29DC425A-BCA6-4419-95E9-E19168168583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29DC425A-BCA6-4419-95E9-E19168168583}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MyFirstCoreWebApplication.Data.Repository;
+using MyFirstCoreWebApplication.Models;
+using MyFirstCoreWebApplication.Services.Business;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,25 +14,27 @@ namespace MyFirstCoreWebApplication.API
     [Route("api/[controller]")]
     public class PeopleController : Controller
     {
-        private IPeopleRepository peopleRepository;
+        private IPeopleService peopleService;
 
-        public PeopleController(IPeopleRepository peopleRepository)
+        public PeopleController(IPeopleService peopleService)
         {
-            this.peopleRepository = peopleRepository;
+            this.peopleService = peopleService;
         }
 
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Person> Get()
         {
-            return new string[] { "value1", "value2" };
+            var personList = peopleService.GetAll().Result;
+
+            return personList.ToArray();
         }
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
         public ObjectResult Get(long id)
         {
-           var person = peopleRepository.Get(id);
+           var person = peopleService.Get(id);
 
             return Ok(person);
         }
